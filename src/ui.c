@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/ui.h"
+#include "ui.h"
 
 void displayHeader() {
     clearScreen();

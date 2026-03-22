@@ -5,11 +5,11 @@
 void addContact(Contact list[], int *count) {
     if (*count < MAX_CONTACTS) {
         printf("\nEnter Name: ");
-        scanf(" %[^\n]", list[*count].name);
+        scanf(" %99[^\n]", list[*count].name);
         printf("Enter Phone: ");
-        scanf("%s", list[*count].phone);
+        scanf(" %31s", list[*count].phone);
         printf("Enter Email: ");
-        scanf("%s", list[*count].email);
+        scanf(" %99s", list[*count].email);
         (*count)++;
         printf("\nContact saved successfully!\n");
     } else {
@@ -29,12 +29,12 @@ void displayContacts(Contact list[], int count) {
 }
 
 void searchContact(Contact list[], int count) {
-    char term;
+    char term[100];
     printf("\nEnter name to search: ");
-    scanf(" %[^\n]", term);
+    scanf(" %99[^\n]", term);
 
     for (int i = 0; i < count; i++) {
-        if (strstr(list[i].name, term) != NULL) { 
+        if (strstr(list[i].name, term) != NULL) {
             printf("\nFound: %s - %s\n", list[i].name, list[i].phone);
             return;
         }

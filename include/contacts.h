@@ -4,9 +4,9 @@
 #define MAX_CONTACTS 100
 
 typedef struct {
-    char name;
-    char phone;
-    char email;
+    char name[100];
+    char phone[32];
+    char email[100];
 } Contact;
 
 void addContact(Contact list[], int *count);

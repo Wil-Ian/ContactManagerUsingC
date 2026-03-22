@@ -2,18 +2,18 @@
 title Contact List Management System - Demo
 cls
 
-echo running executable...
+echo [System] Checking for executable...
 if not exist ContactManager.exe (
     echo [System] Executable not found. Compiling now...
-    make
+    gcc -Iinclude -Wall src/main.c src/contacts.c src/ui.c -o ContactManager.exe
 )
 
-if %errorlevel% equ 0 (
+if exist ContactManager.exe (
     echo [System] Launching Application...
     timeout /t 1 >nul
     ContactManager.exe
 ) else (
     echo.
-    echo [Error] Compilation failed! Please ensure GCC and Make are installed.
+    echo [Error] Compilation failed! Please check the code for typos.
     pause
 )

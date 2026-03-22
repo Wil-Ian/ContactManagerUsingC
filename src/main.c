@@ -18,7 +18,7 @@ int main() {
         printf("Selection: ");
         
         if (scanf("%d", &choice) != 1) {
-            while(getchar() != '\n'); // Clear bad input
+            while(getchar() != '\n');
             continue;
         }
 
