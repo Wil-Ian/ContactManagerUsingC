@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <string.h>
-#include "../include/contacts.h"
+#include <stdlib.h>
+#include "contacts.h"
+#include "ui.h"
 
 int main() {
     Contact myContacts[MAX_CONTACTS];
@@ -16,7 +17,10 @@ int main() {
         printDivider();
         printf("Selection: ");
         
-        if (scanf("%d", &choice) != 1) break; // Basic error handling
+        if (scanf("%d", &choice) != 1) {
+            while(getchar() != '\n'); // Clear bad input
+            continue;
+        }
 
         switch (choice) {
             case 1: 
