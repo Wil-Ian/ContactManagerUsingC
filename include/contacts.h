@@ -11,6 +11,8 @@ typedef struct {
 
 void addContact(Contact list[], int *count);
 void displayContacts(Contact list[], int count);
+void changeContacts(Contact list[], int count);
+void deleteContact(Contact list[], int *count);
 void searchContact(Contact list[], int count);
 
 #endif

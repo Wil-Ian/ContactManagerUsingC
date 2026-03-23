@@ -28,6 +28,52 @@ void displayContacts(Contact list[], int count) {
     }
 }
 
+void changeContacts(Contact list[], int count) {
+    char term[100];
+    printf("\nEnter contact number to change: ");
+    scanf("%31s", term);
+
+    if (term[0] != '0' || term[1] != '9' || strlen(term) != 11) { // assume that we are using the philippine format (09XX-XXX-YYYY)
+        printf("\nInvalid contact number.\n");
+        return;
+    }
+
+    for (int i = 0; i < count; i++) {
+        if (strcmp(list[i].phone, term) == 0) {
+            printf("\nEnter new Name: ");
+            scanf(" %99[^\n]", list[i].name);
+            printf("Enter new Email: ");
+            scanf(" %99s", list[i].email);
+            printf("\nContact updated successfully!\n");
+            return;
+        }
+    }
+    printf("\nContact not found.\n");
+}
+
+void deleteContact(Contact list[], int *count) {
+    char term[100];
+    printf("\nEnter contact number to delete: ");
+    scanf("%31s", term);
+
+    if (term[0] != '0' || term[1] != '9' || strlen(term) != 11) { // ph format(09XX-XXX-YYYY)
+        printf("\nInvalid contact number.\n");
+        return;
+    }
+
+    for (int i = 0; i < *count; i++) {
+        if (strcmp(list[i].phone, term) == 0) {
+            for (int j = i; j < *count - 1; j++) {
+                list[j] = list[j + 1];
+            }
+            (*count)--;
+            printf("\nContact deleted successfully!\n");
+            return;
+        }
+    }
+    printf("\nContact not found.\n");
+}
+
 void searchContact(Contact list[], int count) {
     char term[100];
     printf("\nEnter name to search: ");
